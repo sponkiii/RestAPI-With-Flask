@@ -1,0 +1,129 @@
+=====================
+===What is REST API
+- REpresentational, State, Transfer
+
+- rest is a way for two computer system to comunicate over http in similar ways to web browsers and servers
+
+- "Client-Server" system a  makes a https request to a url hosted by system b, which returns a response.
+
+- "Stateless" the client request should contain all the necesarry to respond to a request
+
+- "Cacheable" a response should be defined as caheable or not 
+
+- "Layered" the requesting client need not know when its communicating on the actual server or any other intermediary
+
+---Important Terminologies:
+- "Endpoint/Resource" it is a URL with a Domain, Port, Path and query string
+
+- "HTTP Methods" 
+GET (to get data as response)
+POST (to create a new record)
+PUT (to update a record)
+DELETE (to remove a record)
+
+- "HTTP Headers" informations such as 
+- "Authentication Token"
+- "Cookies" that can be contained at the http headers 
+
+
+===What is JSON
+- JavaScript, Object, Notation
+
+- 
+
+
+
+===BUILD BOOKS LIBRARY API
+
+===DB Integration
+- integrate this DB to the API in a step by step manner
+
+
+---can:
+- Add a new Book
+
+- GET single Book or list of Books
+
+- Update existing Book record
+
+- DELETE a Book
+
+===========
+In this note:
+- we will do DB Integration
+1. use In-memory List of books objects and do CRUD operations
+2. utilize SQLite Database
+3. Integration online MySQL or Online DB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

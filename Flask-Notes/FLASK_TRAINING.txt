@@ -1,0 +1,116 @@
+===Flask set up
+- set up VEN and install flask
+- to install VEN:
+pip install virtualenv
+
+- go to path where you want to setup yur VEN
+
+- create new ven:
+virtualenv <env_name> -p <python_ver>
+
+- activate ven:
+<venv>\Scripts\activate.bat
+
+- now we install flask while ven is activated:
+pip install flask
+
+- to see what dependencies yur flasks have:
+pip freeze
+
+- to verify flask installed successfully:
+python
+import flask
+
+- if no error, then we good to go
+
+===create simple flask app
+- create folder with ven activated:
+mkdir <folder_name>
+
+- create app.py file on new folder with ven activated:
+echo > <appname>.py
+
+- enter this:
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Hello world'
+
+===how to run the app
+(using ven variables)
+- activate ven
+
+- go to folder of app
+
+- set app:
+set FLASK_APP=app.py
+
+- to run:
+flask run
+
+- go to given link
+-----or-----
+(using code method)
+- put this code on app.py:
+if __name__ == '__main__':
+	app.run()
+
+- then type on terminal:
+python app.py
+
+- works the same
+
+===Dynamic Routing
+- add another route with var name:
+@app.route('/<name>')
+def print_name(name):
+	return 'Hi, {}'.format(name)
+
+===Debugging in Flask
+- 2: Re-loader and Debugger
+
+- Re-loader auto restarts server if you make changes:
+if _name_ == '_main_':
+	app.run(debug=True)
+
+- use this if you run app with code method not ven variable. just add "debug=True" on parameter of app.run()
+
+- if you run app with ven variable type:
+set FLASK_DEBUG=1
+then
+flask run
+
+===NOTE
+- if you run flask as:
+flask run --host <IP>
+
+- the website will now be accessible from any computer in the network at that particular IP address
+
+
+
+
+
+
+https://www.youtube.com/watch?v=F7AK-WzpYdY&list=PLMOobVGrchXN5tKYdyx-d2OwwgxJuqDVH
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

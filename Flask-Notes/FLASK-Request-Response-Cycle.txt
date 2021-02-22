@@ -1,0 +1,142 @@
+===Request-Response Cycle===
+===App & Request Context
+- client requests on flask server, then flasks makes the request object available to the view function that will handle it.
+
+- view then returs a html path as string to flask
+
+- Context make several objects global within a thread without interfering each other.
+
+--Application context:
+- "current_app"
+instance of the applib application
+
+- "g"
+an object that the app can use for temporary storage during the handling of a request, and this variable are reset with each request
+
+--Request context:
+- "request"
+the actual request contact that encapsulates the contents of an http request sent by the client
+- "session"
+a dictionary that the app can use to store the values that are remembered between the requests 
+
+- terminal, app folder:
+.python
+.from app import app
+.from flask import current_app
+.current_app.name (getname)
+-^ this will give error because app context has not been pushed yet. now:
+.app_ctx = app.app_context()
+.app_ctx.push()
+- now we can get name now:
+.current_app.name
+
+same on:
+.from flask import request
+.request.url
+it will return error:
+because it is required to push an http context
+----
+- 
+
+
+
+===Request Dispatching
+- make sure activate ven and on app folder:
+.python
+.from app import app
+.app.url_map
+- "/" and "/<name>" defines 
+the app route
+
+- the actual request object
+
+- Methods:
+."get_data" returns the buffered data from request body
+
+."get_json" returns python dictionary with parsed json included body request
+ 
+."is_secure" returns true if request came from a secure https connections
+
+- Variables:
+."endpoint" endpoint name of a route
+
+."method" https method get or post
+
+."host" portnumber given by client
+
+.URL/base_url complete url requested by client
+
+."environ" dictionary for the requests
+
+- Request Hooks:
+."before_request" functions that runs before the requests
+
+."before_first_request" runs only when the first request was handled
+
+."after_request" runs after each requests but only if no unhandled exceptions occured
+
+."teardown_request" runs after each requests even unhandled exceptions occured
+
+- we use these hooks and store it at 'g' global var and let it get later with view
+
+
+
+===Response Object
+- a simple string in a form of https page
+
+- Methods:
+."set_cookie" adds the cookie to the response 
+
+."delete_cookie" removes the cookie from the response
+
+."set_data" set the response body as a sring or by it's value
+
+."get_data" gets the response body and variables available the response object
+
+- Variables:
+."status_code" returns the numeric https status code
+
+."headers" dictionary with all the headers that will be send with the response
+
+."content_length" length of the response body 
+
+."content_type" media type of the media body which wil be returned back 
+
+- there is a response called "redirect" doesn't return a page or string just gives browser a "url" to navigate.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
